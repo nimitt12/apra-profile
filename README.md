@@ -45,10 +45,6 @@ python3 -m http.server 8080 -d public
 
 Then visit <http://localhost:8080/>.
 
-## Contact form
-
-The form posts to whatever URL is in its `data-endpoint` attribute (in the contact section of `public/index.html`). Create a free form at [Formspree](https://formspree.io/) (or Web3Forms, Getform…), paste its endpoint there, and rebuild. Until then the form shows a note pointing people to LinkedIn and Instagram.
-
 ## Deploy (Firebase Hosting)
 
 ```bash

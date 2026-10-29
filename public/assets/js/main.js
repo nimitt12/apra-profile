@@ -376,7 +376,7 @@
     $$('.js-year').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
     /* ------------------------------------------------------------------
-       Copy to clipboard, YouTube facades, contact form
+       Copy to clipboard, YouTube facades
        ------------------------------------------------------------------ */
 
     const toast = $('.toast');
@@ -413,32 +413,5 @@
         player.className = 'yt';
         player.appendChild(iframe);
         link.replaceWith(player);
-    });
-
-    // Posts to whatever endpoint data-endpoint names (Formspree, Web3Forms, ...)
-    $$('.form').forEach((form) => {
-        const status = $('.form__status', form);
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const endpoint = form.dataset.endpoint;
-            if (!endpoint) {
-                status.textContent = 'The form is not connected yet. Please reach out on LinkedIn or Instagram meanwhile.';
-                return;
-            }
-            if (!form.reportValidity()) return;
-            const button = $('button[type="submit"]', form);
-            button.disabled = true;
-            status.textContent = 'Sending…';
-            try {
-                const res = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-                if (!res.ok) throw new Error(res.statusText);
-                form.reset();
-                status.textContent = 'Thank you! Your letter is on its way, I will get back to you soon.';
-            } catch {
-                status.textContent = 'Something went wrong. Please try again, or reach out on LinkedIn.';
-            } finally {
-                button.disabled = false;
-            }
-        });
     });
 })();

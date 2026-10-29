@@ -1677,15 +1677,14 @@ mark {
 
 .contact__grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: clamp(40px, 6vw, 96px);
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(32px, 6vw, 96px);
     align-items: start;
 }
 
 .contact__intro {
-    max-width: 44ch;
-    margin-bottom: 28px;
-    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    max-width: 40ch;
+    font-size: clamp(1.1rem, 1.4vw, 1.3rem);
 }
 
 .contact__find {
@@ -1698,8 +1697,8 @@ mark {
 /* Postage stamps: holes are punched only in the 7px padding ring; the content box stays solid */
 .stamps {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 160px));
-    gap: 22px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 28px);
 }
 
 .stamp {
@@ -1757,87 +1756,6 @@ mark {
 .stamps li:nth-child(2) .stamp { --c: var(--lilac); --r: 2.5deg; }
 .stamps li:nth-child(3) .stamp { --c: var(--peacock); --r: 2deg; }
 .stamps li:nth-child(4) .stamp { --c: var(--leaf); --r: -2deg; }
-
-/* The form, written like a letter on ruled paper */
-.letter {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 22px;
-    padding: clamp(24px, 3.4vw, 44px) clamp(24px, 3.4vw, 44px) clamp(24px, 3.4vw, 44px) clamp(40px, 5vw, 64px);
-    border: var(--border);
-    border-radius: 10px;
-    background:
-        linear-gradient(90deg, transparent 22px, rgba(255, 61, 139, 0.4) 22px 24px, transparent 24px),
-        repeating-linear-gradient(transparent 0 35px, rgba(30, 15, 43, 0.08) 35px 36px),
-        var(--card);
-    box-shadow: 10px 10px 0 var(--ink);
-    rotate: 1deg;
-}
-
-.letter__dear {
-    grid-column: 1 / -1;
-    font-size: 2.2rem;
-    line-height: 1;
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.field--full {
-    grid-column: 1 / -1;
-}
-
-.field span {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-}
-
-.field input,
-.field textarea {
-    width: 100%;
-    padding: 6px 2px;
-    border: 0;
-    border-bottom: var(--border);
-    background: transparent;
-    font-family: var(--font-hand);
-    font-size: 1.5rem;
-    line-height: 1.3;
-    resize: vertical;
-}
-
-.field textarea {
-    min-height: 130px;
-}
-
-.field input:focus,
-.field textarea:focus {
-    outline: none;
-    border-bottom-color: var(--rani);
-    background: rgba(255, 182, 39, 0.14);
-}
-
-.letter .btn {
-    justify-self: start;
-}
-
-.form__status {
-    grid-column: 1 / -1;
-    min-height: 1.5em;
-    font-weight: 500;
-    color: var(--ink-2);
-}
-
-.form__hp {
-    position: absolute;
-    left: -9999px;
-}
 
 /* ---------- Footer ---------- */
 
@@ -2463,6 +2381,14 @@ mark {
     .nav__links a {
         padding: 8px 12px;
     }
+
+    .contact__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stamps {
+        max-width: 860px;
+    }
 }
 
 @media (max-width: 980px) {
@@ -2477,8 +2403,7 @@ mark {
 
     .hero__grid,
     .about__grid,
-    .podcast__grid,
-    .contact__grid {
+    .podcast__grid {
         grid-template-columns: 1fr;
     }
 
@@ -2566,11 +2491,6 @@ mark {
     .note {
         min-height: 128px;
         padding: 16px;
-    }
-
-    .letter {
-        grid-template-columns: 1fr;
-        rotate: 0deg;
     }
 
     .stamps {

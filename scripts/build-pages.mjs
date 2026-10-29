@@ -65,7 +65,7 @@ const pages = [
         title: 'Contact | Aprajeeta Singh',
         description: "Like to discuss new ideas or interested in joining Aprajeeta Singh on her podcast? Get in touch and let's take this association further!",
         heading: 'Get in <em>touch</em>',
-        lede: 'For any queries, ideas or podcast collaborations, send a message or reach out on whichever platform you prefer.'
+        lede: 'For any queries, ideas or podcast collaborations, reach out on whichever platform you prefer.'
     }
 ];
 
