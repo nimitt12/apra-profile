@@ -1,0 +1,50 @@
+{
+  "hosting": {
+    "public": "public",
+    "predeploy": [
+      "node scripts/build-pages.mjs"
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "redirects": [
+      { "source": "/feed", "destination": "/feed.xml", "type": 301 },
+      { "source": "/blog/feed", "destination": "/feed.xml", "type": 301 },
+      { "source": "/comments/feed", "destination": "/feed.xml", "type": 301 },
+      { "source": "/blog/page/:n", "destination": "/blog/", "type": 301 },
+      { "source": "/blog/tag/**", "destination": "/blog/", "type": 301 },
+      { "source": "/blog/author/**", "destination": "/about/", "type": 301 },
+      { "source": "/author/**", "destination": "/about/", "type": 301 },
+      { "source": "/blog/category/:cat/page/:n", "destination": "/blog/category/:cat/", "type": 301 },
+      { "source": "/home", "destination": "/", "type": 301 },
+      { "source": "/sitemap_index.xml", "destination": "/sitemap.xml", "type": 301 },
+      { "source": "/wp-sitemap.xml", "destination": "/sitemap.xml", "type": 301 },
+      { "source": "/:type-sitemap.xml", "destination": "/sitemap.xml", "type": 301 }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        ]
+      },
+      {
+        "source": "**/*.@(css|js)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=2592000" }
+        ]
+      },
+      {
+        "source": "**/*.@(png|jpg|jpeg|webp|gif|svg|ico)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=2592000" }
+        ]
+      }
+    ]
+  }
+}
